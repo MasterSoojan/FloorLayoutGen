@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "floorlayoutgen"
+version = "0.1.0"
+description = "Interactive desktop floor-plan editor"
+requires-python = ">=3.11"
+dependencies = ["shapely>=2,<3", "matplotlib>=3.8,<4", "ttkbootstrap>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[project.scripts]
+floorlayoutgen = "floorlayout.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["floorlayout*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["F"]
